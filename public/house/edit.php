@@ -4,7 +4,7 @@
 
 <?php 
 
-  $id = $_GET['id'] ?? '1';
+$id = $_GET['id'] ?? '1';
 
 if(is_post_request()){
   $subject = [];
@@ -14,7 +14,12 @@ if(is_post_request()){
   $subject['contents'] = $_POST['contents'] ?? '';
 
   $result = update_subject($subject);
+  if($result === true) {
   redirect_to(url_for('/house/view.php?id='. $id));
+  } else {
+  $errors = $result;
+  // var_dump($errors);
+}
 
 } else{
 
@@ -24,21 +29,20 @@ $subject = find_subject_by_id($id);
 ?>
 
 <div class="contents">
+  <?php echo display_errors($errors); ?>
   <form action="<?php echo url_for('house/edit.php?id='. $id);?>"method="post">
-    <table>
-      <tr>
-        <td>Title</td>
-        <td><input type="text" name="title" size="90"value="<?php echo $subject['title'];?>"></td>
-      </tr>
-      <tr>
-        <td>writer</td>
-        <td><input type="text" name="writer" size="90" value="<?php echo $subject['writer'];?>"></td>
-      </tr>
-      <tr>
-        <td>contents</td>
-        <td><textarea name="contents" rows="17" cols="100"><?php echo $subject['contents'];?></textarea></td>
-      </tr>
-    </table>
+  <dl>
+    <dt>title</dt>
+    <dd><input type="text" name="title" value="<?php echo $subject['title'];?>"></dd>
+  </dl>
+  <dl>
+    <dt>writer</dt>
+    <input type="text" name="writer" value="<?php echo $subject['writer'];?>"></dd>
+  </dl>
+  <dl>
+    <dt>contents</dt>
+    <textarea name="contents"><?php echo $subject['contents'];?></textarea></dd>
+  </dl>
     <div class="edit-btn">
       <button type="submit" class="btn btn-primary submit-btn">Edit</button>
     </div>

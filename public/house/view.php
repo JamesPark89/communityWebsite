@@ -22,7 +22,7 @@
   </table>
   <table>
     <tr>
-      <td class="td-contents">
+      <td>
         <?php echo h($subject['contents']);?>
       </td>
     </tr>

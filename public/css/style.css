@@ -1,10 +1,13 @@
+* {
+  font-family: Quicksand, sans-serif;
+}
+
 html {
   height: 100%;
   width: 100%;
 }
 
 body {
-  font-family: Tahoma, Geneva, sans-serif;
   height: 100%;
   background-color: #f1f1f1;
 }
@@ -15,12 +18,11 @@ body {
 
 .contents {
   position: relative;
-  margin: 0 auto 0 auto;
+  margin: 20px auto 0 auto;
   width: 60%;
-  min-width: 400px;
+  min-width: 350px;
   min-height: 600px;
   background-color: white;
-  border-top: 10px solid #dddddd;
 }
 
 footer {
@@ -36,19 +38,77 @@ footer {
 
 /* house */
 
-.contents-table .table-head,
-.bottom-btn {
-  display: flex;
-  justify-content: end;
-}
-
 .contents-table {
+  table-layout: fixed;
   width: 100%;
-  min-width: 400px;
   margin: 10px auto 10px auto;
 }
 
 .contents-table th {
-  background-color: #dddddd;
-  text-align: center;
+  background-color: #009879;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.contents-table th,
+.contents-table td {
+  padding: 5px 10px;
+}
+
+.contents-table td {
+  border-bottom: 1px solid #dddddd;
+}
+
+.contents-table th:nth-child(1) {
+  width: 80px;
+}
+
+.contents-table th:nth-child(3) {
+  width: 120px;
+}
+
+.contents-table th:nth-child(4) {
+  width: 120px;
+}
+
+.contents-table td {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* new */
+
+.new-table {
+  position: relative;
+}
+
+.new-table td,
+.new-table input,
+.new-table textarea {
+  position: relative;
+  width: 90%;
+  margin: 5px 10px;
+}
+
+.new-table textarea {
+  height: 90%;
+}
+
+.new-table th {
+  padding-left: 10px;
+}
+
+.td-textarea {
+  height: 400px;
+}
+
+.contents .bottom-btn {
+  position: relative;
+}
+
+.contents .submit-btn {
+  position: absolute;
+  right: 10px;
 }
