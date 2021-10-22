@@ -18,10 +18,10 @@
     }
 
     $sql = "UPDATE house SET ";
-    $sql .= "title='" . $subject['title'] . "',";
-    $sql .= "writer='" . $subject['writer'] . "',";
-    $sql .= "contents='" . $subject['contents'] . "'";
-    $sql .= "WHERE id='" . $subject['id'] . "'";
+    $sql .= "title='" . db_escape($db, $subject['title']) . "',";
+    $sql .= "writer='" . db_escape($db, $subject['writer']) . "',";
+    $sql .= "contents='" . db_escape($db, $subject['contents']) . "'";
+    $sql .= "WHERE id='" . db_escape($db, $subject['id']) . "'";
     $sql .= "LIMIT 1";
   
     $result = mysqli_query($db, $sql);
@@ -47,10 +47,10 @@
     $sql = "INSERT INTO house ";
     $sql .= "(title, writer, date, contents) ";
     $sql .= "VALUES (";
-    $sql .="'" . $subject['title'] . "',";
-    $sql .="'" . $subject['writer'] . "',";
-    $sql .="'" . $subject['date'] . "',";
-    $sql .="'" . $subject['contents'] . "'";
+    $sql .="'" . db_escape($db, $subject['title']) . "',";
+    $sql .="'" . db_escape($db, $subject['writer']) . "',";
+    $sql .="'" . db_escape($db, $subject['date']) . "',";
+    $sql .="'" . db_escape($db, $subject['contents']) . "'";
     $sql .= ")";
 
     $result = mysqli_query($db, $sql);
@@ -67,7 +67,7 @@
   function delete_subject($id) {
     global $db;
     $sql = "DELETE FROM house ";
-    $sql .= "WHERE id='". $id . "' ";
+    $sql .= "WHERE id='". db_escape($db, $id) . "' ";
     $sql .= "LIMIT 1";
   
     $result = mysqli_query($db, $sql);
@@ -90,7 +90,7 @@
     $id = $_GET['id'];
 
     $sql = "SELECT * FROM house ";
-    $sql .= "WHERE id='" . $id . "'";
+    $sql .= "WHERE id='" . db_escape($db, $id) . "'";
     $result = mysqli_query($db, $sql);
     $subject = mysqli_fetch_assoc($result);
     mysqli_free_result($result);
@@ -102,14 +102,14 @@
     $errors = [];
     
     // title
-    if(is_blank($subject['title'])) {
+    if(is_blank(db_escape($db, $subject['title']))) {
       $errors[] = "Title cannot be blank.";
     } elseif(!has_length($subject['title'], ['min' => 2, 'max' => 50])) {
       $errors[] = "Title must be between 2 and 50 characters.";
     }
   
     // contents
-    if(is_blank($subject['contents'])) {
+    if(is_blankdb_escape($db, ($subject['contents']))) {
       $errors[] = "contents cannot be blank.";
     } elseif(!has_length($subject['title'], ['min' => 2, 'max' => 255])) {
       $errors[] = "contents must be between 2 and 50 characters.";
