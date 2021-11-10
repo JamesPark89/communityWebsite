@@ -27,7 +27,7 @@
           <a class="nav-link" href="<?php echo url_for('/job/index.php');?>">Job</a>
         </li>
         <li class="nav-item me-auto">
-          <a class="nav-link" href="">Login</a>
+          <a class="nav-link" href="<?php echo url_for('/signup/index.php');?>">Sign up</a>
         </li>
       </ul>
     </div>
