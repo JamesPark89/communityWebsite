@@ -98,7 +98,7 @@
   }
 
   function validate_subject($subject) {
-
+    global $db;
     $errors = [];
     
     // title
@@ -109,7 +109,7 @@
     }
   
     // contents
-    if(is_blankdb_escape($db, ($subject['contents']))) {
+    if(is_blank(db_escape($db, ($subject['contents'])))) {
       $errors[] = "contents cannot be blank.";
     } elseif(!has_length($subject['title'], ['min' => 2, 'max' => 255])) {
       $errors[] = "contents must be between 2 and 50 characters.";
