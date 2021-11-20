@@ -20,6 +20,16 @@ function h($string="") {
   return htmlspecialchars($string);
 }
 
+function error_404() {
+  header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
+  exit();
+}
+
+function error_500() {
+  header($_SERVER["SERVER_PROTOCOL"] . " 500 Internal Server Error");
+  exit();
+}
+
 function redirect_to($location) {
   header("Location: " . $location);
   exit;
@@ -46,5 +56,20 @@ function display_errors($errors=array()) {
     $output .= "</div>";
   }
   return $output;
+}
+
+function get_and_clear_session_message() {
+  if(isset($_SESSION['message']) && $_SESSION['message'] != '') {
+    $msg = $_SESSION['message'];
+    unset($_SESSION['message']);
+    return $msg;
+  }
+}
+
+function display_session_message() {
+  $msg = get_and_clear_session_message();
+  if(!is_blank($msg)) {
+    return '<div id="message">' . h($msg) . '</div>';
+  }
 }
 ?>

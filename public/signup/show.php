@@ -2,8 +2,6 @@
 
 require_once('../../private/initialize.php');
 
-require_login();
-
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 $admin = find_admin_by_id($id);
 
@@ -14,7 +12,7 @@ $admin = find_admin_by_id($id);
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/admins/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/signup/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="admin show">
 

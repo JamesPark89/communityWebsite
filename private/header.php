@@ -29,6 +29,9 @@
         <li class="nav-item me-auto">
           <a class="nav-link" href="<?php echo url_for('/signup/index.php');?>">Sign up</a>
         </li>
+        <li class="nav-item me-0">
+          <a class="nav-link" href="<?php echo url_for('/signin/index.php');?>">Sign in</a>
+        </li>
       </ul>
     </div>
   </div>

@@ -44,6 +44,7 @@ if(is_post_request()) {
 
     <?php echo display_errors($errors); ?>
 
+
     <form action="<?php echo url_for('/signup/index.php'); ?>" method="post">
       <dl>
         <dt>First name</dt>
@@ -64,8 +65,8 @@ if(is_post_request()) {
         <dt>Email </dt>
         <dd><input type="text" name="email" value="<?php echo h($admin['email']); ?>" /><br /></dd>
       </dl>
-
-      <p>Passwords should be at least 12 characters and include at least one uppercase letter, lowercase letter, number, and symbol.</p>
+<!-- 
+      <p>Passwords should be at least 12 characters and include at least one uppercase letter, lowercase letter, number, and symbol.</p> -->
 
       <dl>
         <dt>Password</dt>
