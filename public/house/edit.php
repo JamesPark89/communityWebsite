@@ -1,5 +1,7 @@
 <?php include_once('../../private/initialize.php')?>
 
+<?php require_login();?>
+
 <?php include_once(PRIVATE_PATH .'/header.php')?>
 
 <?php 

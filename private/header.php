@@ -26,12 +26,19 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo url_for('/job/index.php');?>">Job</a>
         </li>
+        <?php if(!is_logged_in()) { ?>
         <li class="nav-item me-auto">
           <a class="nav-link" href="<?php echo url_for('/signup/index.php');?>">Sign up</a>
         </li>
         <li class="nav-item me-0">
-          <a class="nav-link" href="<?php echo url_for('/signin/index.php');?>">Sign in</a>
+          <a class="nav-link" href="<?php echo url_for('/signin/index.php');?>">Login</a>
         </li>
+        <?php }?>
+        <?php if(is_logged_in()) { ?>
+        <li class="nav-item me-0">
+          <a class="nav-link" href="<?php echo url_for('/signin/logout.php');?>">Logout</a>
+        </li>
+        <?php }?>
       </ul>
     </div>
   </div>

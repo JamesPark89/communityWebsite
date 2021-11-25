@@ -1,5 +1,7 @@
 <?php include_once('../../private/initialize.php')?>
 
+<?php require_login();?>
+
 <?php $page_title = 'Create subject'; ?>
 <?php include_once(PRIVATE_PATH .'/header.php')?>
 <?php
@@ -26,7 +28,7 @@
 
 <div class="contents">
   <?php echo display_errors($errors);?>
-  <form action="<?php echo url_for('house/new.php');?>"method="post">
+  <form action="<?php echo url_for('house/new.php');?>" method="post">
     <table class="new-table">
       <tr>
         <th>Title</th>
@@ -34,7 +36,7 @@
       </tr>
       <tr>
         <th>writer</th>
-        <td><input type="text" name="writer" value=""></td>
+        <td><input type="text" name="writer" value="<?php echo $_SESSION['username'];?>" readonly></td>
       </tr>
       <tr>
         <th>contents</th>
