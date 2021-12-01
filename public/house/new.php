@@ -58,26 +58,28 @@
   } else {
     if(move_uploaded_file($temp_name, $directory . "/" . $target_file)){
       $the_message = "File Uploaded Successfully";
+        // Save values to DB
+      $subject = [];
+      $subject['title'] = $_POST['title'] ??'';
+      $subject['writer'] = $_POST['writer'] ??'';
+      $subject['date'] = date("Y-m-d");
+      $subject['contents'] = $_POST['contents'] ??'';
+      $subject['image'] = $target_file;   
+
+      $result = insert_subject($subject);
+      if($result === true) {
+        $new_id = mysqli_insert_id($db);
+        redirect_to(url_for('/house/view.php?id=' . $new_id));
+      } else{
+        $errors = $result;
+      }
+      } else{
+
+      }
     }
   }
 
-  // Save values to DB
-  $subject = [];
-  $subject['title'] = $_POST['title'] ??'';
-  $subject['writer'] = $_POST['writer'] ??'';
-  $subject['date'] = date("Y-m-d");
-  $subject['contents'] = $_POST['contents'] ??'';
-  
-  $result = insert_subject($subject);
-  if($result === true && $uploadOk == 1) {
-    $new_id = mysqli_insert_id($db);
-    redirect_to(url_for('/house/view.php?id=' . $new_id));
-  } else{
-    $errors = $result;
-  }
-  } else{
 
-}
 ?>
 
 <div class="contents">

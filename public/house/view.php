@@ -26,6 +26,11 @@
         <?php echo h($subject['contents']);?>
       </td>
     </tr>
+    <tr>
+      <td>
+        <img class = "image" src="<?php echo '/public/uploads/'. $subject['image']?>"/>
+      </td>
+    </tr>
   </table>
   <div class="bottom-btn">
     <!-- show edit & delete button to the user who create the post-->

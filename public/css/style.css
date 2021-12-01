@@ -120,3 +120,7 @@ footer {
   margin-top : 10px;
 }
 /* sign up */
+.image {
+  max-width: 500px;
+  max-height: 500px;
+}

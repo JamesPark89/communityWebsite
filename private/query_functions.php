@@ -45,12 +45,13 @@
       return $errors;
     }
     $sql = "INSERT INTO house ";
-    $sql .= "(title, writer, date, contents) ";
+    $sql .= "(title, writer, date, contents, image) ";
     $sql .= "VALUES (";
     $sql .="'" . db_escape($db, $subject['title']) . "',";
     $sql .="'" . db_escape($db, $subject['writer']) . "',";
     $sql .="'" . db_escape($db, $subject['date']) . "',";
-    $sql .="'" . db_escape($db, $subject['contents']) . "'";
+    $sql .="'" . db_escape($db, $subject['contents']) . "',";
+    $sql .="'" . db_escape($db, $subject['image']) . "'";
     $sql .= ")";
 
     $result = mysqli_query($db, $sql);
