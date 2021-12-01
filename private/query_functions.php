@@ -215,7 +215,6 @@
     $sql = "SELECT * FROM admins ";
     $sql .= "ORDER BY last_name ASC, first_name ASC";
     $result = mysqli_query($db, $sql);
-    confirm_result_set($result);
     return $result;
   }
 
@@ -226,7 +225,6 @@
     $sql .= "WHERE id='" . db_escape($db, $id) . "' ";
     $sql .= "LIMIT 1";
     $result = mysqli_query($db, $sql);
-    // confirm_result_set($result);
     $admin = mysqli_fetch_assoc($result); // find first
     mysqli_free_result($result);
     return $admin; // returns an assoc. array

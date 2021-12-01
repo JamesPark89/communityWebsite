@@ -23,9 +23,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo url_for('house/index.php');?>">House</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo url_for('/job/index.php');?>">Job</a>
-        </li>
+
         <?php if(!is_logged_in()) { ?>
         <li class="nav-item me-auto">
           <a class="nav-link" href="<?php echo url_for('/signup/index.php');?>">Sign up</a>

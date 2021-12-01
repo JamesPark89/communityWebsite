@@ -13,12 +13,13 @@ body {
 }
 
 .navbar {
-  background-color: #93a4bf !important;
+  background-color: #a0c1b1 !important;
 }
 
 .contents {
   position: relative;
   margin: 20px auto 0 auto;
+  padding: 20px;
   width: 60%;
   min-width: 350px;
   min-height: 600px;
@@ -32,7 +33,7 @@ footer {
   width: 100%;
   height: 50px;
   padding: 10px 20px;
-  background: #93a4bf;
+  background: #a0c1b1;
   color: white;
 }
 
@@ -106,9 +107,16 @@ footer {
 
 .contents .bottom-btn {
   position: relative;
+  height: 30px;
 }
 
 .contents .submit-btn {
   position: absolute;
   right: 10px;
 }
+.alert {
+  width : 60%;
+  margin : auto;
+  margin-top : 10px;
+}
+/* sign up */

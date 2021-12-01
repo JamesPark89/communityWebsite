@@ -49,16 +49,20 @@ if(is_post_request()) {
 <?php include_once(PRIVATE_PATH .'/header.php')?>
 
 
-<div id="contents">
+<div class="contents">
   <h1>Log in</h1>
 
   <?php echo display_errors($errors); ?>
 
   <form action="index.php" method="post">
-    Username:<br />
-    <input type="text" name="username" value="<?php echo h($username); ?>" /><br />
-    Password:<br />
-    <input type="password" name="password" value="" /><br />
+    <dl>
+      <dt>Username:</dt>
+        <dd><input type="text" name="username" value="<?php echo h($username); ?>" /></dd>
+    </dl>
+    <dl>
+      <dt>Password:</dt>
+        <dd><input type="password" name="password" value="" /></dd>
+    </dl>
     <input type="submit" name="submit" value="Submit"  />
   </form>
 

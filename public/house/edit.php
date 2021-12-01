@@ -39,7 +39,7 @@ $subject = find_subject_by_id($id);
   </dl>
   <dl>
     <dt>writer</dt>
-    <input type="text" name="writer" value="<?php echo $subject['writer'];?>"></dd>
+    <input type="text" name="writer" value="<?php echo $subject['writer'];?>" readonly></dd>
   </dl>
   <dl>
     <dt>contents</dt>

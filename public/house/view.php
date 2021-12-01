@@ -28,8 +28,12 @@
     </tr>
   </table>
   <div class="bottom-btn">
+    <!-- show edit & delete button to the user who create the post-->
+    <?php 
+    if($_SESSION['username'] == $subject['writer']){?>
     <a href="<?php echo url_for('/house/edit.php?id='. $id);?>" class="btn btn-primary ">Edit</a>
     <a href="<?php echo url_for('/house/delete.php?id='. $id);?>" class="btn btn-primary delete-btn">Delete</a>
+  <?php } ?>
   </div>
 </div>
 
