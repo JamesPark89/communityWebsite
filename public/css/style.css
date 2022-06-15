@@ -124,3 +124,9 @@ footer {
   max-width: 500px;
   max-height: 500px;
 }
+
+@media only screen and (max-width: 780px){
+  .contents {
+    width: 90%;
+  }
+}

@@ -28,7 +28,7 @@
     </tr>
     <tr>
       <td>
-        <img class = "image" src="<?php echo '/public/uploads/'. $subject['image']?>"/>
+        <img class = "image" src="<?php echo '/communitywebsite/public/uploads/'. $subject['image']?>"/>
       </td>
     </tr>
   </table>

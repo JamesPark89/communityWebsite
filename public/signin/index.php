@@ -15,7 +15,7 @@ if(is_post_request()) {
     $errors[] = "Username cannot be blank.";
   }
   if(is_blank($password)) {
-    $errors[] = "Password cannot be blank.";
+    $errors[] = "Password cannot be blank."; 
   }
 
   // if there were no errors, try to login
